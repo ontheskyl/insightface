@@ -294,9 +294,9 @@ def scrfd_2p5gkps(**kwargs):
 if __name__ == '__main__':
     import glob
     #detector = SCRFD(model_file='./det.onnx')
-    detector = SCRFD(model_file='./det.onnx')
+    detector = SCRFD(model_file='C:/Users/Admin/Desktop/model_scrfd/model_2.5g.onnx')
     detector.prepare(-1)
-    img_paths = ['tests/data/t3.jpg']
+    img_paths = ['C:/Users/Admin/Desktop/Face Detection Dataset/retinaface/val/images/32--Worker_Laborer/32_Worker_Laborer_Worker_Laborer_32_987.jpg']
     for img_path in img_paths:
         img = cv2.imread(img_path)
 
@@ -320,5 +320,5 @@ if __name__ == '__main__':
                     cv2.circle(img, tuple(kp) , 1, (0,0,255) , 2)
         filename = img_path.split('/')[-1]
         print('output:', filename)
-        cv2.imwrite('./outputs/%s'%filename, img)
+        cv2.imwrite('C:/Users/Admin/Desktop/Face Detection Dataset/retinaface/%s'%filename, img)
 

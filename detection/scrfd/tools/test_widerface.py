@@ -13,6 +13,8 @@ from mmcv.parallel import MMDataParallel, MMDistributedDataParallel
 from mmcv.runner import (get_dist_info, init_dist, load_checkpoint,
                          wrap_fp16_model)
 
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 from mmdet.apis import multi_gpu_test, single_gpu_test
 from mmdet.datasets import (build_dataloader, build_dataset,
                             replace_ImageToTensor)
@@ -46,7 +48,7 @@ def parse_args():
     parser.add_argument(
         '--thr',
         type=float,
-        default=0.02,
+        default=0.3,
         help='score threshold')
     parser.add_argument('--local_rank', type=int, default=0)
     parser.add_argument('--mode', type=int, default=0)

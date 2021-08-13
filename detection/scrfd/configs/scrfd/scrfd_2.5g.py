@@ -16,9 +16,9 @@ load_from = None
 resume_from = None
 workflow = [('train', 1)]
 dataset_type = 'RetinaFaceDataset'
-data_root = 'data/retinaface/'
-train_root = 'data/retinaface/train/'
-val_root = 'data/retinaface/val/'
+data_root = 'C:/Users/Admin/Desktop/Face Detection Dataset/retinaface/'
+train_root = data_root + 'train/'
+val_root = data_root + 'val/'
 img_norm_cfg = dict(
     mean=[127.5, 127.5, 127.5], std=[128.0, 128.0, 128.0], to_rgb=True)
 train_pipeline = [
@@ -77,8 +77,8 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type='RetinaFaceDataset',
-        ann_file='data/retinaface/train/labelv2.txt',
-        img_prefix='data/retinaface/train/images/',
+        ann_file=data_root+'train/labelv2.txt',
+        img_prefix=data_root+'train/images/',
         pipeline=[
             dict(type='LoadImageFromFile', to_float32=True),
             dict(type='LoadAnnotations', with_bbox=True, with_keypoints=True),
@@ -115,8 +115,8 @@ data = dict(
         ]),
     val=dict(
         type='RetinaFaceDataset',
-        ann_file='data/retinaface/val/labelv2.txt',
-        img_prefix='data/retinaface/val/images/',
+        ann_file=data_root+'val/labelv2.txt',
+        img_prefix=data_root+'val/images/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
@@ -138,8 +138,8 @@ data = dict(
         ]),
     test=dict(
         type='RetinaFaceDataset',
-        ann_file='data/retinaface/val/labelv2.txt',
-        img_prefix='data/retinaface/val/images/',
+        ann_file=data_root+'val/labelv2.txt',
+        img_prefix=data_root+'val/images/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(

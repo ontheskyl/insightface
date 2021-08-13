@@ -7,6 +7,9 @@ import os
 #import onnxruntime as rt
 import torch
 
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+
 from mmdet.core import (build_model_from_cfg, generate_inputs_and_wrap_model,
                         preprocess_example_input)
 
